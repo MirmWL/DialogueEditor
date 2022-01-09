@@ -1,0 +1,8 @@
+<dialogue>
+  <node>
+    <connect>максимка</connect>
+    <name>Алегша</name>
+    <phrase>Здарова</phrase>
+    <type>Speech</type>
+  </node>
+</dialogue>
