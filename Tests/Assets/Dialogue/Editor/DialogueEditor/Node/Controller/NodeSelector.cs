@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class NodeSelector
 {
     public Action<Node> OnSelect;
-    public Action<Node> OnOpenInteractionPopup;
 
     private Node _selected;
     private readonly IReadOnlyList<Node> _nodes;
