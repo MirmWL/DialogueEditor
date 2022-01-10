@@ -17,7 +17,6 @@ public class Node : IConnectable
     public NodeType Type { get; }
     public Rect Rect => DrawModel.NodeRect;
     public List<int> ConnectTargetsIndexes { get; set; } = new List<int>();
-
     public NodeStateType State { get; private set; }
 
     public void SetState(NodeStateType _state)

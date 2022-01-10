@@ -40,7 +40,7 @@ public class SettingsDialogueToolsAreaDrawer : IDrawer
     {
         string _path = EditorUtility.OpenFilePanel(
             "Xml Files", 
-            @"C:\Users\Divanxan\Project\Tests\Assets\Scripts\Dialogue\Base", 
+            _model.DialogueBaseDirectory,
             "xml");
 
         _model.CurrentXmlPath = _path;

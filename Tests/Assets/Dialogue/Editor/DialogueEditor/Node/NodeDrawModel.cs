@@ -36,10 +36,5 @@ public class NodeDrawModel
         MainTexture.Apply();
     }
 
-    private Vector2 GetCenter()
-    {
-        return new Vector2(NodeRect.size.x / 2, NodeRect.size.y / 2);
-    }
-
-    
+    private Vector2 GetCenter() => new Vector2(NodeRect.size.x / 2, NodeRect.size.y / 2);
 }
