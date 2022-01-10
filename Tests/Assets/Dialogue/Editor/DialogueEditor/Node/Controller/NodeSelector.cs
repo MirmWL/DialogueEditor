@@ -33,7 +33,6 @@ public class NodeSelector
     private bool CheckMouseClick() => Event.current.isMouse;
     private bool GetSelectPossibility(Node _node) => _node.DrawModel.NodeRect.Contains(Event.current.mousePosition);
 
-
     private void Select(Node _node)
     {
         _selected?.SetState(NodeStateType.Default);

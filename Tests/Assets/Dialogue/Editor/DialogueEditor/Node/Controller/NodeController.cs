@@ -26,7 +26,8 @@ public class NodeController
         Node _nodeWithoutOrigin = _observableNodes
             .FirstOrDefault(s => GetConnectIndexes().Contains(s.Model.Index) == false);
 
-        _observableNodes.Move(_observableNodes
+        _observableNodes
+            .Move(_observableNodes
             .ToList()
             .FindIndex(s => s == _nodeWithoutOrigin), 0);
 

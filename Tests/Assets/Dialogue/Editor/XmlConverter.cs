@@ -5,14 +5,14 @@ using System.IO;
 
 public class XmlConverter
 {
-    private XmlDocument _xmlDocument;
+    private XmlDocument _document;
     private StringBuilder _builder;
 
     private string _path;
 
     public XmlConverter()
     {
-        _xmlDocument = new XmlDocument();
+        _document = new XmlDocument();
         _builder = new StringBuilder();
     }
 
@@ -52,8 +52,8 @@ public class XmlConverter
 
     private void Save()
     {   
-        _xmlDocument.LoadXml(_builder.ToString());
-        _xmlDocument.Save(_path);
+        _document.LoadXml(_builder.ToString());
+        _document.Save(_path);
 
         _builder.Clear();
     }

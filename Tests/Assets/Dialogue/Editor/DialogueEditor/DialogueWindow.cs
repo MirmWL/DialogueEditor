@@ -33,10 +33,10 @@ public class DialogueWindow : EditorWindow
             _connectionController.Drawer
         );
 
-        Subscribes();
+        Subscribe();
     }
 
-    private void Subscribes()
+    private void Subscribe()
     {
         _nodeController.Drawer.OnConnect += _connectionController.SetOrigin;
         _nodeController.Selector.OnSelect += _connectionController.SetTarget;

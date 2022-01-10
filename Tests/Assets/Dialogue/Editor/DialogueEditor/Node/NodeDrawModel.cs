@@ -9,8 +9,7 @@ public class NodeDrawModel
 
     public Rect NodeRect;
     private readonly Vector2Int _backGroundSize = new Vector2Int(130, 130);
-
-
+    
     public NodeDrawModel(Vector2 _position)
     {
         NodeRect = new Rect(_position, _backGroundSize);
