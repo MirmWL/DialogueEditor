@@ -48,7 +48,7 @@ public class DialogueWindow : EditorWindow
         _settingsPanel.Drawer.OnDelete += _nodeController.Creator.Delete;
         _settingsPanel.Drawer.OnDelete += _connectionController.DeleteConnection;
 
-        _applicator.RequireSortedNodes += _nodeController.GetSorted;
+        _applicator.RequireSortedNodes += _nodeController.GetSortedCollection;
     }
 
     private void OnGUI()

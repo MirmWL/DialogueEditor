@@ -12,7 +12,7 @@ public class NodeCreator
 
     public void Create(NodeType _type)
     {
-        Node _node = new Node(_type, new Vector2(0, 0), _currentInitIndex++);
+        Node _node = new Node(_type, Vector2.zero, _currentInitIndex++);
    
         _nodes.Add(_node);
         OnCreate.Invoke(_node);

@@ -11,28 +11,33 @@ public class NodeController
     public NodeController()
     {
         Creator = new NodeCreator();
-        Selector = new NodeSelector(Nodes);
-        Drawer = new NodesDrawer(Nodes);
+        Selector = new NodeSelector(_nodes);
+        Drawer = new NodesDrawer(_nodes);
 
         Creator.OnCreate += Selector.OnSelect;
     }
+    
+    private IReadOnlyList<Node> _nodes => Creator.Nodes;
 
-    public IReadOnlyList<Node> Nodes => Creator.Nodes;
-
-    public IReadOnlyList<Node> GetSorted()
+    private Node GetStartNode()
     {
-        ObservableCollection<Node> _observableNodes = new ObservableCollection<Node>(Nodes);
-
-        Node _nodeWithoutOrigin = _observableNodes
+         return _nodes
             .FirstOrDefault(s => GetConnectIndexes().Contains(s.Model.Index) == false);
-
-        _observableNodes
-            .Move(_observableNodes
-            .ToList()
-            .FindIndex(s => s == _nodeWithoutOrigin), 0);
-
-        return _observableNodes.ToList();
     }
+
+    private IReadOnlyCollection<Node> ReplaceStartNodeToFirstPosition()
+    {
+        ObservableCollection<Node> _nodes = new ObservableCollection<Node>(this._nodes);
+        
+        _nodes
+            .Move(_nodes
+            .ToList()
+            .FindIndex(s => s == GetStartNode()), 0);
+
+        return _nodes;
+    }
+
+    public IReadOnlyCollection<Node> GetSortedCollection() => ReplaceStartNodeToFirstPosition();
 
     private IEnumerable<int> GetConnectIndexes()
     {

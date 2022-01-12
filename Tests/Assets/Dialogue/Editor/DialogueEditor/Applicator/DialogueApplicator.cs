@@ -4,7 +4,7 @@ using System;
 
 public class DialogueApplicator
 {
-    public Func<IReadOnlyList<Node>> RequireSortedNodes;
+    public Func<IReadOnlyCollection<Node>> RequireSortedNodes;
     private readonly XmlConverter _converter;
     public DialogueApplicator() => _converter = new XmlConverter();
     

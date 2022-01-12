@@ -48,24 +48,8 @@ public class NodesDrawer : IDrawer
             OnConnect.Invoke(_node); ;    
     }
 
-    private void DrawIndexLabel(Node _node)
-    {
-        EditorGUILayout.LabelField($"index: {_node.Model.Index}");
-    }
-
-    private void DrawNameLabel(Node _node)
-    {
-        EditorGUILayout.LabelField(_node.Model.Name);
-    }
-
-
-    private void DrawPhraseLabel(Node _node)
-    {
-        EditorGUILayout.LabelField(_node.Model.Phrase);
-    }
-
-    private void DrawTypeLabel(Node _node)
-    {
-        EditorGUILayout.LabelField($"type: {_node.Type}");
-    }
+    private void DrawIndexLabel(Node _node) => EditorGUILayout.LabelField($"index: {_node.Model.Index}");
+    private void DrawNameLabel(Node _node) => EditorGUILayout.LabelField(_node.Model.Name);
+    private void DrawPhraseLabel(Node _node) => EditorGUILayout.LabelField(_node.Model.Phrase);
+    private void DrawTypeLabel(Node _node) => EditorGUILayout.LabelField($"type: {_node.Type}");
 }
