@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
+using UnityEngine;
 
 public class NodeController
 {
@@ -43,7 +44,7 @@ public class NodeController
     {
         foreach (Node _node in Creator.Nodes)
         {
-            foreach (int _index in _node.ConnectTargetsIndexes)
+            foreach (int _index in _node._ConnectTargetIndexes)
                 yield return _index;
         }
     }

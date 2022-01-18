@@ -4,48 +4,31 @@
     <connect>
       <connectToIndex>1</connectToIndex>
       <connectToIndex>2</connectToIndex>
+      <connectToIndex>1</connectToIndex>
+      <connectToIndex>2</connectToIndex>
     </connect>
     <index>0</index>
-    <name>Антон</name>
-    <phrase>Здарова</phrase>
+    <name>
+    </name>
+    <phrase>er</phrase>
     <type>Speech</type>
   </node>
   <node>
     <connect>
-      <connectToIndex>3</connectToIndex>
     </connect>
     <index>1</index>
     <name>
     </name>
-    <phrase>Ку</phrase>
+    <phrase>rtrtr</phrase>
     <type>Option</type>
   </node>
   <node>
     <connect>
-      <connectToIndex>4</connectToIndex>
     </connect>
     <index>2</index>
     <name>
     </name>
-    <phrase>Пока</phrase>
+    <phrase>hhhhhh</phrase>
     <type>Option</type>
-  </node>
-  <node>
-    <connect>
-    </connect>
-    <index>3</index>
-    <name>
-    </name>
-    <phrase>Привет</phrase>
-    <type>Speech</type>
-  </node>
-  <node>
-    <connect>
-    </connect>
-    <index>4</index>
-    <name>
-    </name>
-    <phrase>И тебе</phrase>
-    <type>Speech</type>
   </node>
 </dialogue>

@@ -1,16 +1,9 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Connection
-{ 
-    public KeyValuePair<IConnectable, IConnectable> ConnectionPair { get; private set; }
-    public ConnectionDrawModel DrawModel;
-
-    public Connection(KeyValuePair<IConnectable, IConnectable> _connection)
-    {
-        ConnectionPair = _connection;
-        DrawModel = new ConnectionDrawModel(ConnectionPair);
-    }
-
+[Serializable]
+public class Connection 
+{
+    public KeyValuePair<IConnectable, IConnectable> ConnectionPair;
+    public Connection(KeyValuePair<IConnectable, IConnectable> _connection) => ConnectionPair = _connection;
 }

@@ -5,12 +5,10 @@ using System;
 public class DialogueApplicator
 {
     public Func<IReadOnlyCollection<Node>> RequireSortedNodes;
-    private readonly XmlConverter _converter;
-    public DialogueApplicator() => _converter = new XmlConverter();
     
     public void Apply(string _path)
     {
-        _converter.SetFilePath(_path);
-        _converter.AddNodes(RequireSortedNodes.Invoke().ToList());
+        XmlConverter.Instance.SetFilePath(_path);
+        XmlConverter.Instance.Convert(RequireSortedNodes.Invoke().ToList());
     }
 }

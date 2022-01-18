@@ -10,7 +10,6 @@ public class ConnectionController
     private Node _to;
     
     private readonly ConnectionConditionsBase _conditionsBase;
-
     public ConnectionController()
     {     
         _connections = new List<Connection>();
@@ -24,13 +23,12 @@ public class ConnectionController
     {
         if (GetConnectPossibility())
         {
-            _from.ConnectTargetsIndexes.Add(_to.Model.Index);
+            _from._ConnectTargetIndexes.Add(_to.Model.Index);
             _connections.Add(new Connection(new KeyValuePair<IConnectable, IConnectable>(_from, _to)));
         }
        
         _from = null;
         _to = null;
-          
     }
 
     public void DeleteConnection(Node _node)
@@ -40,14 +38,14 @@ public class ConnectionController
             .ToList()
             .ForEach(s =>
             {
-                s.ConnectionPair.Key.ConnectTargetsIndexes.Remove(_node.Model.Index);
+                s.ConnectionPair.Key._ConnectTargetIndexes.Remove(_node.Model.Index);
                 _connections.Remove(s);
             });
     }
 
     private bool GetConnectPossibility()
     {
-        switch (_to.Type)
+        switch (_to._Type)
         {
             case NodeType.Speech:
 

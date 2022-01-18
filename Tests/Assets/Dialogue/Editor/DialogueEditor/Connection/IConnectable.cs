@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+
 public interface IConnectable
-{
-    List<int> ConnectTargetsIndexes { get; set; }
-    NodeType Type { get; }
-    Rect Rect { get; }
+{ 
+    List<int> _ConnectTargetIndexes { get; set; }   
+    Rect Rect { get;  }
+    NodeType _Type { get; }
 }

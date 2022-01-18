@@ -10,7 +10,6 @@ public class ConnectionsDrawer : IDrawer
     public ConnectionsDrawer(IReadOnlyList<Connection> _connections) 
     { 
         this._connections = _connections;
-
         Draw += DrawLine;
     }
 

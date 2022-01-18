@@ -19,22 +19,22 @@ public class ConnectionConditionsBase
 
     private bool CheckSameSpeechTypeLvl(IConnectable _from)
     {
-        return GetConnectionTargets(_from).All(s => s.Type == NodeType.Speech);
+        return GetConnectionTargets(_from).All(s => s._Type == NodeType.Speech);
     }
 
     private bool CheckSameOptionTypeLvl(IConnectable _from)
     {
-        return GetConnectionTargets(_from).All(s => s.Type == NodeType.Option);
+        return GetConnectionTargets(_from).All(s => s._Type == NodeType.Option);
     }
 
     private bool GetAddSpeechTargetPossibility(IConnectable _from, IConnectable _to)
     {
-        return _to.Type == NodeType.Speech && _from.ConnectTargetsIndexes.Count == 0;
+        return _to._Type == NodeType.Speech && _from._ConnectTargetIndexes.Count == 0;
     }
 
     private bool GetAddOptionTargetPossibility(IConnectable _from, IConnectable _to)
     {
-        return _from.Type != NodeType.Option && _to.Type == NodeType.Option;
+        return _from._Type != NodeType.Option && _to._Type == NodeType.Option;
     }
 
     private IEnumerable<IConnectable> GetConnectionTargets(IConnectable _from)

@@ -17,6 +17,7 @@ public class NodeCreator
         _nodes.Add(_node);
         OnCreate.Invoke(_node);
     }
-   
+
+    public void Create(Node _node) => _nodes.Add(_node);
     public void Delete(Node _node) => _nodes.Remove(_node);
 }

@@ -1,23 +1,34 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
-public class Node : IConnectable
+[Serializable]
+public class Node : IConnectable, ISavable
 {
-    public readonly NodeModel Model;
-    public readonly NodeDrawModel DrawModel;
-   
+    public NodeModel Model;
+    public NodeDrawModel DrawModel;
+    
     public Node(NodeType _type, Vector2 _startPos, int _index)
     {
         Model = new NodeModel();
         DrawModel = new NodeDrawModel(_startPos);
-        Type = _type;
+        Model.Type = _type;
         Model.Index = _index;
     }
 
-    public NodeType Type { get; }
+    public NodeType _Type { get => Model.Type; }
     public Rect Rect => DrawModel.NodeRect;
-    public List<int> ConnectTargetsIndexes { get; set; } = new List<int>();
-    public NodeStateType State { get; private set; }
+    public List<int> _ConnectTargetIndexes
+    {
+        get { return Model.ConnectTargetsIndexes; }
+        set { Model.ConnectTargetsIndexes = value; }
+    }
+
+    public NodeStateType _State
+    {
+        get { return Model.State; }
+        private set { Model.State = value; }
+    }
 
     public void SetState(NodeStateType _state)
     {
@@ -31,7 +42,11 @@ public class Node : IConnectable
                 break;
         }
 
-        State = _state;
+        _State = _state;
     }
-    
+
+    void ISavable.Init()
+    {
+        DrawModel.InitTexture();
+    }
 }

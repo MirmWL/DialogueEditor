@@ -5,6 +5,9 @@ using System.IO;
 [XmlRoot("dialogue")]
 public class DialogueSettings
 {
+    [XmlElement("saveData")] 
+    public SaveData[] SaveData;
+    
     [XmlElement("node")]
     public SettingNode[] Nodes;
 
@@ -15,6 +18,17 @@ public class DialogueSettings
         return _serializer.Deserialize(_reader) as DialogueSettings;
     }
 }
+
+[System.Serializable]
+public class SaveData
+{
+    [XmlElement("json")]
+    public string Json;
+
+    [XmlElement("key")] 
+    public string Key;
+}
+
 
 [System.Serializable]
 public class SettingNode
@@ -35,6 +49,7 @@ public class SettingNode
     public string Type;
     
 }
+
 
 public class SettingConnect
 {
