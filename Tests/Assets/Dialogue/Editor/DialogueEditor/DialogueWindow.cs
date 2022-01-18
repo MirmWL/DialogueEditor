@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueWindow : EditorWindow
 {
-    private CreateNodeArea _createArea;
+    private CreateNodeArea _createPopup;
     private SettingsPanel _settingsPanel;
     
     private NodeController _nodeController;
@@ -13,6 +13,7 @@ public class DialogueWindow : EditorWindow
     private SaveController _saveController;
     private LoadController _loadController;
 
+    private XmlConverter _xmlConverter;
     private DialogueApplicator _applicator;
 
     [MenuItem("Window/Dialogue Editor")]
@@ -31,15 +32,16 @@ public class DialogueWindow : EditorWindow
 
     private void Create()
     {
+        _xmlConverter = new XmlConverter();
         _nodeController = new NodeController();
-        _createArea = new CreateNodeArea();
+        _createPopup = new CreateNodeArea();
         _settingsPanel = new SettingsPanel();
         _connectionController = new ConnectionController();
         _applicator = new DialogueApplicator();
         
         _drawController = new DrawController(
             _nodeController.Drawer,
-            _createArea.Drawer,
+            _createPopup.Drawer,
             _settingsPanel.Drawer,
             _connectionController.Drawer
         );
@@ -61,7 +63,7 @@ public class DialogueWindow : EditorWindow
         _nodeController.Selector.OnSelect += _connectionController.SetTarget;
         _nodeController.Selector.OnSelect += _settingsPanel.UpdatePanel;
 
-        _createArea.Drawer.OnCreate += _nodeController.Creator.Create;
+        _createPopup.Drawer.OnCreate += _nodeController.Creator.Create;
 
         _settingsPanel.Drawer.DialogueToolsAreaDrawer.OnSave += _saveController.Save;
         _settingsPanel.Drawer.DialogueToolsAreaDrawer.OnApply += _applicator.Apply;
